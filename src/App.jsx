@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import Display from "./components/Display";
 import "./index.css";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         </div>
         <div className="h-[90%] flex">
           <Sidebar />
+          <Display />
         </div>
       </div>
     </>
