@@ -1,6 +1,7 @@
 import DisplayNavBar from "./DisplayNavBar";
-import { albumsData } from "../assets/assets";
+import { albumsData, songsData } from "../assets/assets";
 import AlbumItem from "./AlbumItem";
+import SongItem from "./SongItem";
 
 function Display() {
   return (
@@ -8,14 +9,28 @@ function Display() {
       <DisplayNavBar />
       <div className="mb-4">
         <h1 className="my-5 font-bold text-2xl">Vos mix préférés</h1>
-        <div className= "flex overflow-auto gap-2">
+        <div className="flex overflow-auto gap-2">
           {albumsData.map((album, index) => (
             <AlbumItem
               key={index}
+              id={album.id}
               image={album.image}
               name={album.name}
-              id={album.id}
               desc={album.desc}
+            />
+          ))}
+        </div>
+        <h1 className="my-5 font-bold text-2xl">Musiques du moment</h1>
+        <div className="flex overflow-auto gap-2">
+          {songsData.map((song, index) => (
+            <SongItem
+              key={index}
+              id={song.id}
+              image={song.image}
+              name={song.name}
+              desc={song.desc}
+              file={song.file}
+              duration={song.duration}
             />
           ))}
         </div>
