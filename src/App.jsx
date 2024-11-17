@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import Display from "./components/Display";
 import "./index.css";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         </div>
         <div className="h-[90%] flex">
           <Sidebar />
-          <Display />
+          <Outlet />
         </div>
       </div>
     </>

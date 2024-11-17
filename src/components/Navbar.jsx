@@ -3,7 +3,7 @@ import React from "react";
 function Navbar() {
   return (
     <div>
-      <nav class=" dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b dark:border-gray-600">
+      <nav class=" bg-black fixed w-full z-20 top-0 start-0 border-b dark:border-gray-600">
         <div class=" flex flex-wrap items-center justify-between mx-auto p-4">
           <a
             href="https://open.spotify.com/"

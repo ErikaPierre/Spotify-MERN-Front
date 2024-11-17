@@ -1,13 +1,33 @@
+import "./index.css";
 import App from "./App.jsx";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage.jsx";
+import Display from "./components/Display.jsx";
+import AlbumItem from "./components/AlbumItem.jsx";
+import DisplayAlbum from "./pages/DisplayAlbum.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Display />,
+      },
+      {
+        path: "/album/:id",
+        element: <DisplayAlbum />,
+      },
+    ],
+  },
+]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </StrictMode>
 );
