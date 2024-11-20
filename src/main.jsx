@@ -5,7 +5,6 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Display from "./components/Display.jsx";
-import AlbumItem from "./components/AlbumItem.jsx";
 import DisplayAlbum from "./pages/DisplayAlbum.jsx";
 
 const router = createBrowserRouter([

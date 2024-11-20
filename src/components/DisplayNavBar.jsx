@@ -3,6 +3,9 @@ import { assets } from "../assets/assets";
 
 function DisplayNavBar() {
   const navigate = useNavigate();
+  const buttonStyle =
+    "px-4 py-2 bg-transparent hover:bg-white hover:text-black hover:rounded-full";
+
   return (
     <>
       <div className="w-full flex justify-between items-center font-semibold">
@@ -33,15 +36,9 @@ function DisplayNavBar() {
         </div>
       </div>
       <div className="flex items-center gap-4 mt-4 text-white">
-        <button className="px-4 py-2 bg-transparent hover:bg-white hover:text-black hover:rounded-full">
-          Tous
-        </button>
-        <button className="px-4 py-2 bg-transparent hover:bg-white hover:text-black hover:rounded-full">
-          Musiques
-        </button>
-        <button className="px-4 py-2 bg-transparent hover:bg-white hover:text-black hover:rounded-full">
-          Playlists
-        </button>
+        <button className={buttonStyle}>Tous</button>
+        <button className={buttonStyle}>Musiques</button>
+        <button className={buttonStyle}>Playlists</button>
       </div>
     </>
   );

@@ -1,13 +1,32 @@
 import DisplayNavBar from "../components/DisplayNavBar";
 import { albumsData, assets, songsData } from "../assets/assets";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 function DisplayAlbum() {
   const { id } = useParams();
   const albumData = albumsData[id];
+
+  const displayRef = useRef();
+  const location = useLocation();
+  const isAlbum = location.pathname.includes("album");
+  const albumID = isAlbum ? location.pathname.slice(-1) : "";
+  const bgColor = albumsData[Number(albumID)].bgColor;
+
+  useEffect(() => {
+    if (isAlbum) {
+      displayRef.current.style.background = `linear-gradient(${bgColor}, #121212)`;
+    } else{
+      displayRef.current.style.background = `#121212`;
+    }
+  });
+  
   return (
     <>
-      <div className="w-[85%] rounded p-2 flex-col md:flex-row md:items-end bg-[#121212]">
+      <div
+        ref={displayRef}
+        className="w-[85%] rounded p-2 flex-col md:flex-row md:items-end bg-[#121212]"
+      >
         <div>
           <DisplayNavBar />
         </div>
