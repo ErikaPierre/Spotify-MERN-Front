@@ -1,11 +1,13 @@
 import DisplayNavBar from "../components/DisplayNavBar";
 import { albumsData, assets, songsData } from "../assets/assets";
 import { useLocation, useParams } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { PlayerContext } from "../context/PlayerContext";
 
 function DisplayAlbum() {
   const { id } = useParams();
   const albumData = albumsData[id];
+  const { playWithId } = useContext(PlayerContext);
 
   const displayRef = useRef();
   const location = useLocation();
@@ -16,11 +18,11 @@ function DisplayAlbum() {
   useEffect(() => {
     if (isAlbum) {
       displayRef.current.style.background = `linear-gradient(${bgColor}, #121212)`;
-    } else{
+    } else {
       displayRef.current.style.background = `#121212`;
     }
   });
-  
+
   return (
     <>
       <div
@@ -60,6 +62,7 @@ function DisplayAlbum() {
         <hr />
         {songsData.map((song, index) => (
           <div
+            onClick={() => playWithId(song.id)}
             key={index}
             className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer"
           >

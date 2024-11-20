@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Display from "./components/Display.jsx";
 import DisplayAlbum from "./pages/DisplayAlbum.jsx";
+import PlayerContextProvider from "./context/PlayerContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <PlayerContextProvider>
+      <RouterProvider router={router} />
+    </PlayerContextProvider>
   </StrictMode>
 );
